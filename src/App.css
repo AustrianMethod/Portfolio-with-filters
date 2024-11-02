@@ -1,6 +1,5 @@
 .filters {
   display: flex;
-  justify-content: center;
 }
 
 .filter {
@@ -10,7 +9,19 @@
   padding: 5px 15px;
 }
 
-/* .projects {
-  margin: 0;
-  padding: 0;
-} */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:column;
+  max-height: 1340px;
+  gap: 10px;
+}
+
+.container {
+  margin: auto;
+  width: 710px;
+}
+
+img {
+  width: 33%;
+}

@@ -6,31 +6,36 @@ import './App.css';
 function ProjectList({projects}) {
 
   const items = projects.map( project => 
-    <img className="projects" src = {project.img}/> 
+    <img src = {project.img}/>
   );
 
   return (
-    <div>
+    <div className="projects">
       {items}
     </div>
   );
-
 }
 
 function Toolbar({filters, selected, onSelectFilter}) {
 
   const items = filters.map( filter => 
-      <div key={filter} className="filter" onClick={() => onSelectFilter(filter)}>
+      <div 
+        key={filter} className="filter" 
+        onClick={() => onSelectFilter(filter)}
+        style={{ 
+          background: filter === selected ? "#000000" : "#ffffff",
+          color: filter === selected ? "#ffffff" : "#000000",
+         }}
+      >
         {filter}
       </div> 
   );
 
   return ( 
-  <div className="filters">
-    {items}
-  </div>
+    <div className="filters">
+      {items}
+    </div>
   );
-
 }
 
 function Portfolio() {
@@ -99,20 +104,17 @@ function Portfolio() {
     setSelectedFilter(filter);
   };
 
-
   return (
-    <>
+    <div className="container">
       <Toolbar
         filters={filters}
         selected={selectedFilter}
         onSelectFilter={onSelectFilter}
       />
       <ProjectList projects = {filteredProjects}/>
-    </>
+    </div>
   );
 }
-
-
 
 function App() {
   return (
