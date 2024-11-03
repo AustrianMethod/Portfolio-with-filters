@@ -118,7 +118,6 @@ function Portfolio() {
       />
       <ProjectList projects = {filteredProjects}/>
     </div>
-    </div>
   );
 }
 
