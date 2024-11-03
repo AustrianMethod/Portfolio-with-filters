@@ -1,22 +1,28 @@
 import { useState } from 'react';
 import './App.css';
 
-
-
 function ProjectList({projects}) {
-
-  const items = projects.map( project => 
-    <img src = {project.img}/>
-  );
+  const itemPerColumn = [Math.ceil(projects.length / 3)];
+  const columns = [
+    projects.slice(0, itemPerColumn),
+    projects.slice(itemPerColumn, 2 * itemPerColumn),
+    projects.slice(2 * itemPerColumn)
+  ];
 
   return (
     <div className="projects">
-      {items}
+      {columns.map( (column, columnInd) => (
+        <div className='column' key={columnInd}>
+          {column.map( (src, imgInd) => (
+            <img className='cardImg' key={imgInd} src={src.img}/>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }
 
-function Toolbar({filters, selected, onSelectFilter}) {
+function Toolbar({filters, onSelectFilter}) {
 
   const items = filters.map( filter => 
       <div 
@@ -105,13 +111,13 @@ function Portfolio() {
   };
 
   return (
-    <div className="container">
+    <div className='container'>
       <Toolbar
         filters={filters}
-        selected={selectedFilter}
         onSelectFilter={onSelectFilter}
       />
       <ProjectList projects = {filteredProjects}/>
+    </div>
     </div>
   );
 }
