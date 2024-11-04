@@ -1,3 +1,7 @@
+#root {
+  display: flex;
+}
+
 .filters {
   display: flex;
 }
@@ -9,19 +13,20 @@
   padding: 5px 15px;
 }
 
+.container {
+  width: 940px;
+}
+
 .projects {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction:column;
-  max-height: 1340px;
-  gap: 10px;
+  gap: 20px;
 }
 
-.container {
-  margin: auto;
-  width: 710px;
+.cardImg {
+  padding: 0 0 20px;
+  width: 300px;
 }
 
-img {
-  width: 33%;
-}
+
+
+
