@@ -22,7 +22,7 @@ function ProjectList({projects}) {
   );
 }
 
-function Toolbar({filters, onSelectFilter}) {
+function Toolbar({filters,selected, onSelectFilter}) {
 
   const items = filters.map( filter => 
       <div 
@@ -111,19 +111,22 @@ function Portfolio() {
   };
 
   return (
-    <div className='container'>
+    <>
       <Toolbar
         filters={filters}
+        selected={selectedFilter}
         onSelectFilter={onSelectFilter}
       />
       <ProjectList projects = {filteredProjects}/>
-    </div>
+    </>
   );
 }
 
 function App() {
   return (
-    <Portfolio/>
+    <div className='container'>
+      <Portfolio/>
+    </div>
   );
 }
 
